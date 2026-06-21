@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>용사인데 마왕 딸을 납치했습니다</title>
-<!-- ===== 링크 공유 시 미리보기 썸네일 (Open Graph) =====
-     아래 두 곳의 REPO_NAME 을 실제 GitHub 저장소 이름으로 바꾸세요. -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="용사인데 마왕 딸을 납치했습니다" />
 <meta property="og:description" content="세계를 정복한 마왕이 두 손 든 단 하나의 적 — 제 딸 셋. 그 수습을 떠맡은 건, 하필 당신이라는 용사." />
@@ -292,7 +290,6 @@
   <a class="link" href="#gallery">갤러리</a>
 </nav>
 
-<!-- ===== HERO ===== -->
 <header class="hero">
   <a class="hero-link" id="heroLink" href="#" aria-label="작품 페이지로 이동"></a>
   <div class="hero-bg"></div>
@@ -305,7 +302,6 @@
   <div class="scrollcue">Scroll<span></span></div>
 </header>
 
-<!-- ===== 의뢰서 ===== -->
 <section id="letter" class="letter-sec">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -326,7 +322,6 @@
   </div>
 </section>
 
-<!-- ===== 등장인물 ===== -->
 <section id="chars">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -339,7 +334,6 @@
   </div>
 </section>
 
-<!-- ===== 갤러리 ===== -->
 <section id="gallery">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -353,7 +347,6 @@
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
 <section class="cta-sec">
   <div class="wrap reveal">
     <h2>이제, 셋을 떠맡을 차례</h2>
@@ -398,7 +391,7 @@ Object.entries(CHARS).forEach(([k,c])=>{
   const el = document.createElement('article');
   el.className='ccard'; el.style.setProperty('--c',c.color);
   el.innerHTML=`
-    <div class="pic"><span class="tag">${c.romaji}</span><img src="img/${base}" alt="${c.name}" loading="lazy"></div>
+    <div class="pic"><span class="tag">${c.romaji}</span><img src="${base}" alt="${c.name}" loading="lazy"></div>
     <div class="body">
       <div class="nm"><h3>${c.name}</h3><span class="ro">${c.role}</span></div>
       <div class="quote">"${c.quote}"</div>
@@ -415,8 +408,8 @@ function renderGal(key){
   gal.innerHTML='';
   GAL[key].imgs.forEach(([label,file])=>{
     const d=document.createElement('div'); d.className='gitem';
-    d.innerHTML=`<img src="img/${file}" alt="${label}" loading="lazy"><span class="cap">${label}</span>`;
-    d.onclick=()=>openLb('img/'+file, GAL[key].name+' · '+label);
+    d.innerHTML=`<img src="${file}" alt="${label}" loading="lazy"><span class="cap">${label}</span>`;
+    d.onclick=()=>openLb(file, GAL[key].name+' · '+label);
     gal.appendChild(d);
   });
   [...tabs.children].forEach(t=>t.classList.toggle('active',t.dataset.k===key));
@@ -454,7 +447,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* ===== play link placeholder =====
-   ↓ CRACK 공개 후 아래 URL을 실제 작품 링크로 교체하세요. */
+    ↓ CRACK 공개 후 아래 URL을 실제 작품 링크로 교체하세요. */
 const PLAY_URL = "https://share.crack.wrtn.ai/wt70ne"; // CRACK 작품 링크
 const pb=document.getElementById('playBtn');
 const hl=document.getElementById('heroLink');
