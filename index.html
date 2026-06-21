@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>용사인데 마왕 딸을 납치했습니다</title>
+<!-- ===== 링크 공유 시 미리보기 썸네일 (Open Graph) =====
+     아래 두 곳의 REPO_NAME 을 실제 GitHub 저장소 이름으로 바꾸세요. -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="용사인데 마왕 딸을 납치했습니다" />
 <meta property="og:description" content="세계를 정복한 마왕이 두 손 든 단 하나의 적 — 제 딸 셋. 그 수습을 떠맡은 건, 하필 당신이라는 용사." />
@@ -11,7 +13,7 @@
 <meta property="og:url" content="https://vmfkdla.github.io/REPO_NAME/" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="용사인데 마왕 딸을 납치했습니다" />
-<meta name="twitter:description" content="마왕가 삼자매 강제 동거 코미디 · CRACK" />
+<meta name="twitter:description" content="마왕가 삼자매 강제 동거 코미디" />
 <meta name="twitter:image" content="https://vmfkdla.github.io/REPO_NAME/banner.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,11 +118,13 @@
   .scrollcue span{width:1px;height:34px;background:linear-gradient(var(--gold),transparent)}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);opacity:.7}50%{transform:translateX(-50%) translateY(7px);opacity:1}}
 
-  /* 모바일 화면 최적화 (1216x832 비율 대응) */
+  /* 모바일 화면 최적화 (왼쪽 잘림 방지) */
   @media(max-width: 760px){
     .hero-bg{
-      /* 가로가 넓은 이미지이므로 기준점을 아예 10% (거의 맨 왼쪽)로 확 당김 */
-      background-position: 10% 20%; 
+      /* 이미지의 왼쪽 끝을 화면 왼쪽 끝에 완벽히 맞춤 */
+      background-position: left 20%; 
+      /* 크기 확대 효과를 제거해서 가장자리가 잘려나가는 현상 방지 */
+      transform: none; 
     }
     .hero h1{
       font-size:clamp(1.9rem, 7vw, 2.5rem); 
@@ -273,6 +277,7 @@
   <a class="link" href="#gallery">갤러리</a>
 </nav>
 
+<!-- ===== HERO ===== -->
 <header class="hero">
   <a class="hero-link" id="heroLink" href="#" aria-label="작품 페이지로 이동"></a>
   <div class="hero-bg"></div>
@@ -285,6 +290,7 @@
   <div class="scrollcue">Scroll<span></span></div>
 </header>
 
+<!-- ===== 의뢰서 ===== -->
 <section id="letter" class="letter-sec">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -296,15 +302,16 @@
       <div class="to">용사에게.</div>
       <p>이 편지를 읽고 있다면, 자네는 이미 그 셋을 떠맡은 뒤겠지. 미안하네. 달리 부탁할 자가 없었어.</p>
       <p>케일리스, 발드라, 엘라라 — 재능은 흘러넘치는데, 정작 해야 할 일은 하나도 하지 않고 종일 서로 잡아먹지 못해 안달이야. 나로서는… 더 이상 손쓸 방도가 없었네.</p>
-      <p>목에 채운 초커는 자네의 명령에 따른다. 부디 요긴하게 쓰게.</p>
+      <p>목에 채운 초커는 자네의 명령에 따르니 부디 요긴하게 쓰게.</p>
       <p>보수는, 살아남으면 그때 얘기하지.</p>
       <div class="sign">— 마왕 말라카르</div>
-      <div class="ps">추신. 화해까지는 바라지도 않네. 집이라도 무사하면, 그걸로 충분하이.</div>
+      <div class="ps">추신. 화해까지는 바라지도 않네. 집이라도 무사하면, 그걸로 충분하네.</div>
       <div class="seal">M</div>
     </div>
   </div>
 </section>
 
+<!-- ===== 등장인물 ===== -->
 <section id="chars">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -317,6 +324,7 @@
   </div>
 </section>
 
+<!-- ===== 갤러리 ===== -->
 <section id="gallery">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -330,6 +338,7 @@
   </div>
 </section>
 
+<!-- ===== CTA ===== -->
 <section class="cta-sec">
   <div class="wrap reveal">
     <h2>이제, 셋을 떠맡을 차례</h2>
