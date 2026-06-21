@@ -116,14 +116,13 @@
   .scrollcue span{width:1px;height:34px;background:linear-gradient(var(--gold),transparent)}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);opacity:.7}50%{transform:translateX(-50%) translateY(7px);opacity:1}}
 
-  /* 모바일 화면 최적화 추가 */
+  /* 모바일 화면 최적화 (1216x832 비율 대응) */
   @media(max-width: 760px){
     .hero-bg{
-      /* 모바일에서는 캐릭터가 있는 왼쪽(약 30% 지점)을 포커스로 잡음 */
-      background-position: 30% 20%; 
+      /* 가로가 넓은 이미지이므로 기준점을 아예 10% (거의 맨 왼쪽)로 확 당김 */
+      background-position: 10% 20%; 
     }
     .hero h1{
-      /* 폰에서 제목이 캐릭터 얼굴을 너무 가리지 않도록 폰트 크기 살짝 조정 */
       font-size:clamp(1.9rem, 7vw, 2.5rem); 
     }
   }
@@ -162,10 +161,10 @@
     font-family:"Gowun Batang",serif; line-height:2;
     transform:rotate(-.6deg);
   }
-  .letter::before,.letter::after{content:"";position:absolute;left:0;right:0;height:16px;
+  .letter::before,.letter::after{content:"absolute";left:0;right:0;height:16px;
     background-size:22px 16px;}
-  .letter::before{top:-15px;background-image:linear-gradient(135deg,transparent 50%,#e9dec9 50%),linear-gradient(-135deg,transparent 50%,#e9dec9 50%);background-position:0 0;}
-  .letter::after{bottom:-15px;transform:rotate(180deg);background-image:linear-gradient(135deg,transparent 50%,#e2d3b6 50%),linear-gradient(-135deg,transparent 50%,#e2d3b6 50%);}
+  .letter::before{content:"";top:-15px;background-image:linear-gradient(135deg,transparent 50%,#e9dec9 50%),linear-gradient(-135deg,transparent 50%,#e9dec9 50%);background-position:0 0;}
+  .letter::after{content:"";bottom:-15px;transform:rotate(180deg);background-image:linear-gradient(135deg,transparent 50%,#e2d3b6 50%),linear-gradient(-135deg,transparent 50%,#e2d3b6 50%);}
   .letter .to{font-weight:700;font-size:1.15rem;margin-bottom:18px;letter-spacing:.02em}
   .letter p{margin-bottom:14px;font-size:1rem;color:#4a3d2e}
   .letter .sign{text-align:right;margin-top:26px;font-weight:700;font-size:1.05rem;color:#5a2630}
@@ -208,34 +207,6 @@
   .ccard .hash{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
   .ccard .hash span{font-size:.72rem;color:color-mix(in srgb,var(--c) 50%,var(--tl));
     background:color-mix(in srgb,var(--c) 14%,transparent);padding:4px 10px;border-radius:6px;border:1px solid color-mix(in srgb,var(--c) 25%,transparent)}
-
-  /* ===== choker ===== */
-  .choker-sec{background:linear-gradient(180deg,transparent,rgba(157,138,203,.07),transparent)}
-  .choker-box{max-width:720px;margin:0 auto;text-align:center;
-    background:linear-gradient(160deg,var(--ink2),var(--ink));border:1px solid rgba(200,164,95,.18);
-    border-radius:18px;padding:clamp(32px,6vw,54px);box-shadow:var(--shadow)}
-  .choker-box .ring{width:58px;height:58px;border-radius:50%;margin:0 auto 22px;
-    border:4px solid var(--gold);position:relative;box-shadow:0 0 22px rgba(200,164,95,.35)}
-  .choker-box .ring::after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;
-    background:var(--wine-l);left:50%;bottom:-9px;transform:translateX(-50%);box-shadow:0 0 12px var(--wine-l)}
-  .choker-box h3{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.4rem;margin-bottom:14px;color:var(--parch)}
-  .choker-box p{color:var(--muted);font-size:.98rem;max-width:46em;margin:0 auto}
-  .choker-box .hint{margin-top:20px;font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--gold);font-size:1.05rem}
-
-  /* ===== affinity ===== */
-  .aff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  @media(max-width:780px){.aff-grid{grid-template-columns:repeat(2,1fr)}}
-  .aff{position:relative;background:linear-gradient(170deg,var(--ink2),var(--ink));
-    border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:26px 20px;text-align:center;overflow:hidden}
-  .aff .em{font-size:1.9rem;line-height:1}
-  .aff .st{font-family:"Cinzel",serif;font-size:.62rem;letter-spacing:.18em;color:var(--gold);margin:12px 0 6px;text-transform:uppercase}
-  .aff .nm{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.05rem;color:var(--parch);margin-bottom:10px}
-  .aff .lock{font-size:.82rem;color:var(--muted-d);font-style:italic;font-family:"Cormorant Garamond",serif}
-  .aff .blur{filter:blur(5px);user-select:none;color:var(--muted);font-size:.8rem;margin-top:4px}
-  .aff:nth-child(1){--g:var(--wine)} .aff:nth-child(2){--g:var(--ember)}
-  .aff:nth-child(3){--g:var(--dusk)} .aff:nth-child(4){--g:var(--gold)}
-  .aff::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--g);opacity:.8}
-  .aff-note{text-align:center;margin-top:30px;color:var(--muted);font-size:.9rem}
 
   /* ===== gallery ===== */
   .tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:34px}
@@ -350,7 +321,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Expressions</span>
-      <h2>표정 갤러리</h2>
+      <h2>갤러리</h2>
       <p class="lead">상황마다 달라지는 네 사람의 얼굴.</p>
       <div class="rule"></div>
     </div>
