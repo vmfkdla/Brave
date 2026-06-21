@@ -116,6 +116,18 @@
   .scrollcue span{width:1px;height:34px;background:linear-gradient(var(--gold),transparent)}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);opacity:.7}50%{transform:translateX(-50%) translateY(7px);opacity:1}}
 
+  /* 모바일 화면 최적화 추가 */
+  @media(max-width: 760px){
+    .hero-bg{
+      /* 모바일에서는 캐릭터가 있는 왼쪽(약 30% 지점)을 포커스로 잡음 */
+      background-position: 30% 20%; 
+    }
+    .hero h1{
+      /* 폰에서 제목이 캐릭터 얼굴을 너무 가리지 않도록 폰트 크기 살짝 조정 */
+      font-size:clamp(1.9rem, 7vw, 2.5rem); 
+    }
+  }
+
   /* embers */
   .embers{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
   .ember{position:absolute;bottom:-12px;width:4px;height:4px;border-radius:50%;
