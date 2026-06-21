@@ -9,12 +9,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="용사인데 마왕 딸을 납치했습니다" />
 <meta property="og:description" content="세계를 정복한 마왕이 두 손 든 단 하나의 적 — 제 딸 셋. 그 수습을 떠맡은 건, 하필 당신이라는 용사." />
-<meta property="og:image" content="https://vmfkdla.github.io/Brave/banner.png" />
-<meta property="og:url" content="https://vmfkdla.github.io/Brave/" />
+<meta property="og:image" content="https://vmfkdla.github.io/REPO_NAME/banner.png" />
+<meta property="og:url" content="https://vmfkdla.github.io/REPO_NAME/" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="용사인데 마왕 딸을 납치했습니다" />
 <meta name="twitter:description" content="마왕가 삼자매 강제 동거 코미디 · CRACK" />
-<meta name="twitter:image" content="https://vmfkdla.github.io/Brave/banner.png" />
+<meta name="twitter:image" content="https://vmfkdla.github.io/REPO_NAME/banner.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -89,17 +89,14 @@
     padding:0 clamp(22px,7vw,110px) clamp(60px,9vh,110px);
     overflow:hidden;
   }
-  .hero-bg{position:absolute;inset:0;z-index:0;
-    background:url('banner.png') center 28% / cover no-repeat;
-    transform:scale(1.04);
-  }
-  .hero-bg::after{content:"";position:absolute;inset:0;
+  .hero-link{position:absolute;inset:0;z-index:1;display:block;cursor:pointer}
+  .hero-img{width:100%;height:100%;object-fit:cover;object-position:center 26%;display:block;transform:scale(1.04)}
+  .hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;
     background:
       linear-gradient(180deg, rgba(20,15,24,.55) 0%, rgba(20,15,24,.05) 28%, rgba(20,15,24,.4) 62%, rgba(20,15,24,.96) 100%),
       radial-gradient(140% 80% at 30% 50%, transparent 40%, rgba(20,15,24,.55) 100%);
   }
-  .hero-link{position:absolute;inset:0;z-index:1;display:block;cursor:pointer}
-  .hero-inner{position:relative;z-index:2;max-width:760px}
+  .hero-inner{position:relative;z-index:3;max-width:760px}
   .hero .eyebrow{display:block;margin-bottom:18px}
   .hero h1{
     font-family:"Gowun Batang",serif; font-weight:700;
@@ -118,21 +115,18 @@
   .scrollcue span{width:1px;height:34px;background:linear-gradient(var(--gold),transparent)}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);opacity:.7}50%{transform:translateX(-50%) translateY(7px);opacity:1}}
 
-  /* 모바일 화면 최적화 (왼쪽 잘림 방지) */
-  @media(max-width: 760px){
-    .hero-bg{
-      /* 이미지의 왼쪽 끝을 화면 왼쪽 끝에 완벽히 맞춤 */
-      background-position: left 20%; 
-      /* 크기 확대 효과를 제거해서 가장자리가 잘려나가는 현상 방지 */
-      transform: none; 
-    }
-    .hero h1{
-      font-size:clamp(1.9rem, 7vw, 2.5rem); 
-    }
+  @media(max-width:760px){
+    header.hero{min-height:auto;display:block;padding:0 0 36px;overflow:visible}
+    .hero-link{position:static;display:block}
+    .hero-img{height:auto;object-fit:contain;transform:none}
+    .hero-scrim,.scrollcue,.embers{display:none}
+    .hero-inner{padding:26px 22px 4px;max-width:none}
+    .hero .eyebrow{margin-bottom:12px}
+    .hero h1{font-size:clamp(1.95rem,8vw,2.7rem);margin-bottom:16px}
   }
 
   /* embers */
-  .embers{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+  .embers{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
   .ember{position:absolute;bottom:-12px;width:4px;height:4px;border-radius:50%;
     background:radial-gradient(circle,rgba(214,80,60,.9),rgba(200,164,95,.2));
     filter:blur(.4px);opacity:0;animation:rise linear infinite}
@@ -279,11 +273,13 @@
 
 <!-- ===== HERO ===== -->
 <header class="hero">
-  <a class="hero-link" id="heroLink" href="#" aria-label="작품 페이지로 이동"></a>
-  <div class="hero-bg"></div>
+  <a class="hero-link" id="heroLink" href="#" aria-label="작품 페이지로 이동">
+    <img class="hero-img" src="banner.png" alt="용사인데 마왕 딸을 납치했습니다">
+  </a>
+  <div class="hero-scrim"></div>
   <div class="embers" id="embers"></div>
   <div class="hero-inner">
-    <span class="eyebrow">마왕가 삼자매 동거극 · A CRACK Story</span>
+    <span class="eyebrow">마왕가 삼자매 동거극</span>
     <h1>용사인데,<br><span class="accent">마왕 딸</span>을 납치했습니다</h1>
     <p class="logline">세계를 정복한 마왕이 두 손 든 단 하나의 적 — 제 딸 셋. 그 수습을 떠맡은 건, 하필 당신이라는 용사였다.</p>
   </div>
@@ -302,10 +298,10 @@
       <div class="to">용사에게.</div>
       <p>이 편지를 읽고 있다면, 자네는 이미 그 셋을 떠맡은 뒤겠지. 미안하네. 달리 부탁할 자가 없었어.</p>
       <p>케일리스, 발드라, 엘라라 — 재능은 흘러넘치는데, 정작 해야 할 일은 하나도 하지 않고 종일 서로 잡아먹지 못해 안달이야. 나로서는… 더 이상 손쓸 방도가 없었네.</p>
-      <p>목에 채운 초커는 자네의 명령에 따른니 부디 요긴하게 쓰게.</p>
+      <p>목에 채운 초커는 자네의 명령에 따른다. 부디 요긴하게 쓰게.</p>
       <p>보수는, 살아남으면 그때 얘기하지.</p>
       <div class="sign">— 마왕 말라카르</div>
-      <div class="ps">추신. 화해까지는 바라지도 않네. 집이라도 무사하면, 그걸로 충분하네.</div>
+      <div class="ps">추신. 화해까지는 바라지도 않네. 집이라도 무사하면, 그걸로 충분하이.</div>
       <div class="seal">M</div>
     </div>
   </div>
@@ -329,7 +325,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Expressions</span>
-      <h2>갤러리</h2>
+      <h2>표정 갤러리</h2>
       <p class="lead">상황마다 달라지는 네 사람의 얼굴.</p>
       <div class="rule"></div>
     </div>
@@ -349,7 +345,7 @@
 
 <footer>
   <div class="em">DEMON SISTERS</div>
-  <p style="margin-top:10px">용사인데 마왕 딸을 납치했습니다 · 팬 소개 페이지</p>
+  <p style="margin-top:10px">용사인데 마왕 딸을 납치했습니다</p>
 </footer>
 
 <div class="lb" id="lb"><img id="lbImg" src="" alt=""><div class="lcap" id="lbCap"></div></div>
